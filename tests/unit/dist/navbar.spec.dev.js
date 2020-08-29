@@ -4,7 +4,7 @@ var _testUtils = require("@vue/test-utils");
 
 var _chai = require("chai");
 
-var _nav = _interopRequireDefault(require("@/components/nav.vue"));
+var _nav = _interopRequireDefault(require("../../src/components/nav.vue"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -16,7 +16,7 @@ describe('todolist.vue', function _callee() {
         case 0:
           wrapper = (0, _testUtils.shallowMount)(_nav["default"]);
           it('should be named navbar', function () {
-            (0, _chai.expect)(wrapper.name()).to.be('navbar');
+            (0, _chai.expect)(wrapper.name()).to.equal('navbar');
           });
           _context.next = 4;
           return regeneratorRuntime.awrap(wrapper.setData({
@@ -25,7 +25,7 @@ describe('todolist.vue', function _callee() {
 
         case 4:
           it('name property of data to be Henry Eze', function () {
-            (0, _chai.expect)(wrapper.vm.name).to.be('Henry Eze');
+            (0, _chai.expect)(wrapper.vm.name).to.equal('Henry Eze');
           });
 
         case 5:

@@ -1,10 +1,59 @@
 <template>
   <div id="app">
-    henry
+    <navbar />
+    <div style="width: 40%; margin: auto; padding-top: 50px;">
+      <task v-for="(task, index) in tasks" :key="index" :name="task.name" :status="task.status"/>
+    </div>
   </div>
 </template>
 <script>
-export default {};
+import navbar from '@/components/nav.vue'
+import task from '@/components/task.vue'
+export default {
+  components: {
+    navbar,
+    task
+  },
+  data: () => {
+    return {
+      tasks: [
+        {
+          name: 'Build application',
+          status: false
+        },
+        {
+          name: 'Write blogpost',
+          status: true
+        },
+        {
+          name: 'Test application',
+          status: true
+        },
+        {
+          name: 'Go Home',
+          status: false
+        },
+        {
+          name: 'Sleep',
+          status: true
+        },
+        {
+          name: 'Eat',
+          status: false
+        },
+        {
+          name: 'Have your bath',
+          status: false
+        }
+      ]
+    }
+  },
+  mounted(){
+    this.$on('event', result => {
+      alert(result)
+    })
+  }
+};
 </script>
 <style>
 #app {

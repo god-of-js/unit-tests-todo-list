@@ -4,7 +4,7 @@ var _testUtils = require("@vue/test-utils");
 
 var _chai = require("chai");
 
-var _task = _interopRequireDefault(require("@/components/task.vue"));
+var _task = _interopRequireDefault(require("../../src/components/task.vue"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -15,7 +15,7 @@ describe("task.vue", function () {
     wrapper = (0, _testUtils.shallowMount)(_task["default"], {
       propsData: {
         //setting dummy data for props
-        taskName: 'Henry Eze'
+        name: 'Henry Eze'
       },
       data: function data() {
         //setting dummy data for the data 
@@ -30,19 +30,20 @@ describe("task.vue", function () {
     wrapper.destroy();
   });
   it("should have its name as task", function () {
-    (0, _chai.expect)(wrapper.name()).to.be("task");
+    console.log(wrapper.name());
+    (0, _chai.expect)(wrapper.name()).to.equal("task");
   });
   it("Status check", function () {
     wrapper.setProps({
       name: 'Test Task',
       status: false
     });
-    (0, _chai.expect)(wrapper.vm.name).to.be('Test Task');
+    (0, _chai.expect)(wrapper.vm.name).to.equal('Test Task');
 
     if (wrapper.vm.status === false) {
-      (0, _chai.expect)(wrapper.find('.status').text()).to.be('Unfinished');
+      (0, _chai.expect)(wrapper.find('.status').text()).to.equal('Unfinished');
     } else {
-      (0, _chai.expect)(wrapper.find('.status').text()).to.be('Complete');
+      (0, _chai.expect)(wrapper.find('.status').text()).to.equal('Complete');
     }
   });
   it('delete should work', function _callee() {
@@ -56,11 +57,10 @@ describe("task.vue", function () {
           case 2:
             //  find returns the wrapper of the first node matching the selector
             //  findall returns all the wrappers of the node matching the selector
-            wrapper.vm.$emit('deleteTask', true);
-            console.log(wrapper.emitted().deleteTask);
-            (0, _chai.expect)(wrapper.emitted().deleteTask).to.be(true);
+            wrapper.vm.$emit('event', true);
+            (0, _chai.expect)(wrapper.emitted().event[0][0]).to.equal(true);
 
-          case 5:
+          case 4:
           case "end":
             return _context.stop();
         }
