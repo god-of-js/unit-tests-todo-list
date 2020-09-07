@@ -2,13 +2,18 @@
   <div id="app">
     <navbar />
     <div style="width: 40%; margin: auto; padding-top: 50px;">
-      <task v-for="(task, index) in tasks" :key="index" :name="task.name" :status="task.status"/>
+      <task
+        v-for="(task, index) in tasks"
+        :key="index"
+        :name="task.name"
+        :status="task.status"
+      />
     </div>
   </div>
 </template>
 <script>
-import navbar from '@/components/nav.vue'
-import task from '@/components/task.vue'
+import navbar from "@/components/nav.vue";
+import task from "@/components/task.vue";
 export default {
   components: {
     navbar,
@@ -18,40 +23,40 @@ export default {
     return {
       tasks: [
         {
-          name: 'Build application',
+          name: "Build application",
           status: false
         },
         {
-          name: 'Write blogpost',
+          name: "Write blogpost",
           status: true
         },
         {
-          name: 'Test application',
+          name: "Test application",
           status: true
         },
         {
-          name: 'Go Home',
+          name: "Go Home",
           status: false
         },
         {
-          name: 'Sleep',
+          name: "Sleep",
           status: true
         },
         {
-          name: 'Eat',
+          name: "Eat",
           status: false
         },
         {
-          name: 'Have your bath',
+          name: "Have your bath",
           status: false
         }
       ]
-    }
+    };
   },
-  mounted(){
-    this.$on('event', result => {
-      alert(result)
-    })
+  mounted() {
+    this.$on("event", result => {
+      alert(result);
+    });
   }
 };
 </script>

@@ -2,7 +2,7 @@ language: node_js
 node_js: - '12.18'
 cache: npm
 script: 
-  - npm run test:unit
+  - npm test
 after_success: 
   - npm run build
 deploy:
