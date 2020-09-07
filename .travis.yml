@@ -11,5 +11,3 @@ deploy:
   api_key:
     secure: $TOKEN
   app: 'unittodolists'
-  on:
-    branch: master
