@@ -1,5 +1,7 @@
 language: node_js
-node_js: - '12.18'
+
+node_js: 
+  - '12.18'
 cache: npm
 script: 
   - npm run test:unit
@@ -13,4 +15,3 @@ deploy:
   app: unittodolists
   on:
     branch: master
-    
