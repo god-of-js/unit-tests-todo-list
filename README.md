@@ -1,5 +1,7 @@
 # tests
 
+[![Build Status](https://travis-ci.org/god-of-js/unit-tests-todo-list.svg?branch=master)](https://travis-ci.org/god-of-js/unit-tests-todo-list)
+
 ## Project setup
 ```
 npm install
