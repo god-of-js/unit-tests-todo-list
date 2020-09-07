@@ -1,6 +1,6 @@
 language: node_js
 node_js: 
-  - '12.18'
+ - '12.18'
 cache: npm
 script: 
   - npm run test:unit
@@ -10,7 +10,7 @@ deploy:
   provider: heroku
   skip_cleanup: true
   api_key:
-    secure: $TOKEN
+    secure: f55c6386-55bd-4c9f-ab7e-c01643591f1b
   app: unittodolists
   on:
     branch: master
