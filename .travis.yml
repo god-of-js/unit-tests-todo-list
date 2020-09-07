@@ -10,7 +10,7 @@ deploy:
   provider: heroku
   skip_cleanup: true
   api_key:
-    secure: ce9f509f-7f90-49c9-a915-8183e986839c
+    secure: "ce9f509f-7f90-49c9-a915-8183e986839c"
   app: unittodolists
   on:
     branch: master
