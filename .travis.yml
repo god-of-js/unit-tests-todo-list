@@ -3,9 +3,11 @@ node_js: - '12.18'
 cache: npm
 scripts: 
   npm run test:unit
+before_deploy: 
+  npm run build
 deploy:
   provider: heroku
-
+  skip_cleanup: true
   api_key:
     secure: ce9f509f-7f90-49c9-a915-8183e986839c
   app: 'unittodolists'
