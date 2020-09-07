@@ -5,6 +5,7 @@ scripts:
   npm run test:unit
 deploy:
   provider: heroku
+
   api_key:
     secure: ce9f509f-7f90-49c9-a915-8183e986839c
   app: 'unittodolists'
