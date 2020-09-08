@@ -1,16 +1,16 @@
 language: node_js
-node_js: 
- - '12.18'
+node_js:
+- '12.18'
 cache: npm
-script: 
-  - npm run test:unit
-after_success: 
-  - npm run build
+script:
+- npm run test:unit
+after_success:
+- npm run build
 deploy:
   provider: heroku
   skip_cleanup: true
   api_key:
-    secure: "ce9f509f-7f90-49c9-a915-8183e986839c"
+    secure: KTS4wT+C/1IW783peGkUdVVka/CDLy0rj0X2k5DjO3mBw6iMMuST8QmY+ofwmzZE1P1hs4pM6cv9+fY7qJiYpYhWBBJWxLk8Quce5PaIItMEC78NJdDFf7uhjsP8OJ6sPI2e8sGjWuR7swzhOycPdbLKAhKzPGdi+H1y7l/BCX1X+dp6lnxB5u5UToDqZuJv7YdHB39qUlU6lZkRpbdfY3EL9lw+5m+Brb9BNfDR7327QTJ0UANfgcyy+dejo4qje2f9G1gUfPaCY2PdQuSz21F0EOwU8jNtbgk9p4VPXYB0IKpfgsoxVKrMuYCUGqPcmrqQds0tJqrNje1ySPrdGdIfLd0+eBfxqN42Z0wD0HEDTJw5c/ObB8DUqHWVZfC4zEGYaN9FC0EVgI0i5vVli0XjcRSBQ0bMYHE9hSSlTEraLRmJ2iTa88kC4dJp0nd3BwVM3ZhOZ8UE0oF19muyR3K3NyG+2RsFn8RthAvd4u0z87SyQOquXC8CmT582VX2W6OnGql94r+hEW/ywRK8yJiu6P9k75e2rJoSiXDJ55NsbGVisnbu7FACrwgI83TOHst1fX0umFeyVacmc8OqVTZn8furhDlXW640M6h7QAm0ACLWvb6axV710GzXIh/MMhHqMCva8aYmkDwNEprlkyV+9MGI1iFTkV0doIYgPPs=
   app: unittodolists
   on:
     branch: master
