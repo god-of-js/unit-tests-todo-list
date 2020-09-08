@@ -1,23 +1,47 @@
-orbs:
-  node: circleci/node@1.1
-  heroku: circleci/heroku@1.2.2
+# orbs:
+#   node: circleci/node@1.1
+#   heroku: circleci/heroku@1.2.2
+# version: 2.1
+# jobs:
+#   build:
+#     docker:
+#       - image: buildpack-deps:trusty
+#     executor:
+#       name: node/default
+#       tag: '10.4'
+#     steps:
+#       - checkout
+#       - node/with-cache:
+#           steps:
+#             - run: npm install
+#       - run: npm run test:unit
+# workflows:
+#   heroku_deploy:
+#     jobs:
+#       - heroku/deploy-via-git:
+#           pre-steps:
+#             - run: npm run build
 version: 2.1
 jobs:
   build:
     docker:
-      - image: buildpack-deps:trusty
-    executor:
-      name: node/default
-      tag: '10.4'
+    - image: circleci/node:11.8-browsers
     steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-      - run: npm run test:unit
-workflows:
-  heroku_deploy:
-    jobs:
-      - heroku/deploy-via-git:
-          pre-steps:
-            - run: npm run build
+    - checkout # special step to check out source code to working directory
+    - restore_cache: # special step to restore the dependency cache
+        key: dependency-cache-{{ checksum "package.json" }}
+    - run:
+        name: install npm dependencies
+        command: npm install
+    - save_cache: # special step to save the dependency cache
+        key: dependency-cache-{{ checksum "package.json" }}
+        paths:
+        - ./node_modules
+    - run:
+        name: starting a development server
+        command: npm run serve
+        background: true
+    - run:
+        name: running unit tests
+        command: npm run test:unit
+    
