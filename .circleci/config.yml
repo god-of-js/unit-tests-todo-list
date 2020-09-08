@@ -14,17 +14,20 @@ workflows:
             branches:
               only: sequential-branch-filter
 jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.4-node
-      - image: circleci/postgres:9.4.12-alpine
-    working_directory: ~/circleci-demo-workflows
+  deploy:
+    executor: heroku/default
     steps:
       - checkout
-      # Bundle install dependencies
-      - run: bundle install --path vendor/bundle
-      # Database setup
-      - run: bundle exec rake db:create db:schema:load
+      - heroku/install
       - run:
-          name: Run tests
-          command: rake
+          command: >
+            echo "The command above installs Heroku, the command below deploys.
+            What you do inbetween is up to you!"
+      - heroku/deploy-via-git
+orbs:
+  heroku: circleci/heroku@x.y
+version: 2.1
+workflows:
+  heroku_deploy:
+    jobs:
+      - deploy
