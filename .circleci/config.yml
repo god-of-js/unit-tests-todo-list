@@ -26,7 +26,6 @@ jobs:
       - heroku/deploy-via-git
 orbs:
   heroku: circleci/heroku@x.y
-version: 2.1
 workflows:
   heroku_deploy:
     jobs:
