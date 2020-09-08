@@ -1,8 +1,6 @@
 version: 2.1
-
 orbs:
   heroku: circleci/heroku@0.0.10. # Invoke the Heroku orb
-
 workflows:
   heroku_deploy:
     jobs:
@@ -24,8 +22,6 @@ jobs:
             echo "The command above installs Heroku, the command below deploys.
             What you do inbetween is up to you!"
       - heroku/deploy-via-git
-orbs:
-  heroku: circleci/heroku@x.y
 workflows:
   heroku_deploy:
     jobs:
