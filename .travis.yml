@@ -10,7 +10,6 @@ deploy:
   provider: heroku
   api_key:
     secure: XIcKM54xp/VsWLw8mihKYVzNsnWJtgzuN/t0/I6dNK0PdniathXPhe9dknBj6aFiXrjm4KDdOjvsiyfijpMlVbP5iHTFUE0MKRWnFlSuMZffMosbvG/eEKKMH90Gi2zaRQmOPcQrJ3hGkVunIgwoa3lqB6t1Llfle3NqUVSafOsAwslaZ9rPqD/Zex+kW/NgAJeFFtyLKPe8mqE44Bp7MufVwNQzdHELA+j35uGXnDad26/ITbIHQQ5E5hlKb8um9BN6VsjKInVaIyBUfonV5yHNLXNeXwODRlFWuiHbyXh7cO6siIS/RrkvvzR58ALOTgUcANvgCwcWJrSoR/BvlFMMBFthARX0gZySwZlTIjQGwJoJTxWNw1qzHTgMuLw+j7BbQw5Vep3xSpe6jyRhGkzc0MT3DFr93PV5yh4l4qN1K/DAj7oI/Le7vw/4LixDM6ZzU9N4lW4sPYq72f39MfEujUuPSjiYcovwAiXZOOgHV8/9UZ6qBl8BWPXhJXBjb/WE4oWa1yhQevclOSc87ijk1sAiC4S4BceEv5sl1Ait3W9uDbhuaQPwGTNQT3ngMox1SrZQu2oTk3oHs3UuMd0n9AUkxcPISr3haIipb5AEG6AGr+q6iYKQ5J7yaaa16ueDeBs0m8jDdaNnA2y2+lFYjPo0M3OKnH+0D4M1Kzo=
-  app: unit-tests-todo-list
   on:
     repo: god-of-js/unit-tests-todo-list
   skip_cleanup: 'true'
