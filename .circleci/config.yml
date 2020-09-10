@@ -11,7 +11,7 @@ workflows:
             - build
           filters:
             branches:
-              only: sequential-branch-filter
+              only: master
 jobs:
   build:
     docker:
@@ -27,10 +27,10 @@ jobs:
         key: dependency-cache-{{ checksum "package.json" }}
         paths:
         - ./node_modules
-    - run:
-        name: starting a development server
-        command: npm run serve
-        background: true
+    # - run:
+    #     name: starting a development server
+    #     command: npm run serve
+    #     background: true
     - run:
         name: running unit tests
         command: npm run test:unit
