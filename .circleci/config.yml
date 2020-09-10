@@ -12,6 +12,9 @@ workflows:
           filters:
             branches:
               only: master
+    - run:
+        name: setting a default heroku build pack
+        command: heroku buildpacks:set heroku/nodejs
 jobs:
   build:
     docker:
@@ -27,9 +30,6 @@ jobs:
         key: dependency-cache-{{ checksum "package.json" }}
         paths:
         - ./node_modules
-    - run:
-        name: setting a default heroku build pack
-        command: heroku buildpacks:set heroku/nodejs
     - run:
         name: running unit tests
         command: npm run test:unit
