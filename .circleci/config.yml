@@ -33,9 +33,9 @@ jobs:
     - run:
         name: running unit tests
         command: npm run test:unit
-    - run: # run code coverage report
-          name: code-coverage
-          command: npm run coveralls
+    # - run: # run code coverage report
+    #       name: code-coverage
+    #       command: npm run coveralls
     - coveralls/upload
 notify:
   webhooks:
