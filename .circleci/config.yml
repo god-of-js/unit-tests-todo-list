@@ -31,6 +31,10 @@ jobs:
     - run:
         name: running unit tests
         command: npm run test:unit
-    - coveralls/upload:
-          parallel: true
-          flag_name: Test 
+    - run: # run code coverage report
+          name: code-coverage
+          command: npm run coverage
+    - coveralls/upload
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook?repo_token=${I8ebfXWL4MBesm4zslNqY2lK1oGjq0TzM}
