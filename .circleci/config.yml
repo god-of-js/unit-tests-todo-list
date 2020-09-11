@@ -33,7 +33,7 @@ jobs:
         command: npm run test:unit
     - run: # run code coverage report
           name: code-coverage
-          command: nyc npm run test:unit
+          command: npm run coveralls
     - coveralls/upload
 notify:
   webhooks:
