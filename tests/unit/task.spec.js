@@ -38,11 +38,14 @@ describe("task.vue", () => {
       expect(wrapper.find(".status").text()).to.equal("Complete");
     }
   });
-  it("delete shoul work", async () => {
+  it("delete should work", async () => {
     await wrapper.find("button").trigger("click");
     //  find returns the wrapper of the first node matching the selector
     //  findall returns all the wrappers of the node matching the selector
     wrapper.vm.$emit("event", true);
-    expect(wrapper.emitted().event[0][0]).to.equal(true);
+    expect(wrapper.emitted().event[1][0]).to.equal(true);
+    expect(wrapper.emitted().event.length).to.equal(2);
+    expect({name: 'Henry Eze', age: 26, }).to.have.own.property('age');
   });
+ 
 });

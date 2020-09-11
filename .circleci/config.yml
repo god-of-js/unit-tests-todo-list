@@ -7,7 +7,7 @@ workflows:
   heroku_deploy:
     jobs:
       - build
-      - heroku/deploy-via-git: # Use the pre-configured job,  
+      - heroku/deploy-via-git: # Use the pre-configured job  
           requires:
             - build
           filters:
@@ -18,7 +18,7 @@ jobs:
     docker:
     - image: circleci/node:11.8-browsers
     steps:
-    - checkout # special step to check out source code to working directo
+    - checkout # special step to check out source code to working directory
     - restore_cache: # special step to restore the dependency cache
         key: dependency-cache-{{ checksum "package.json" }}
     - run:
