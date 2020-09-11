@@ -37,6 +37,19 @@ jobs:
           name: code-coverage
           command: npm run coveralls
     - coveralls/upload
+commands:
+  upload:
+    parameters:
+      path_to_lcov:
+        description: >
+          Local path to the lcov output file produced by your test suite.
+          An error will be thrown if the file can't be found. This is the file that will be sent to the Coveralls API.
+        type: string
+        default: ./coverage/lcov.info
+      token:
+        description: Your Coveralls Repo token defined in your Circle's Environment Variables.
+        type: env_var_name
+        default: I8ebfXWL4MBesm4zslNqY2lK1oGjq0TzM
 notify:
   webhooks:
     - url: https://coveralls.io/webhook?repo_token=${I8ebfXWL4MBesm4zslNqY2lK1oGjq0TzM}
