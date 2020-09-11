@@ -37,7 +37,10 @@ jobs:
           name: code-coverage
           command: npm run coveralls
 
-    - coveralls/upload
+
+    - coveralls/upload:
+        parallel: true
+        flag_name: Test 2
     
 commands:
   upload:
@@ -51,7 +54,7 @@ commands:
       token:
         description: Your Coveralls Repo token defined in your Circle's Environment Variables.
         type: env_var_name
-        default: I8ebfXWL4MBesm4zslNqY2lK1oGjq0TzM
+        default: COVERALLS_REPO_TOKEN
 notify:
   webhooks:
-    - url: https://coveralls.io/webhook?repo_token=${I8ebfXWL4MBesm4zslNqY2lK1oGjq0TzM}
+    - url: https://coveralls.io/webhook?repo_token=${COVERALLS_REPO_TOKEN}
