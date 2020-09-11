@@ -31,4 +31,6 @@ jobs:
     - run:
         name: running unit tests
         command: npm run test:unit
-    - coveralls/upload
+    - coveralls/upload:
+          parallel: true
+          flag_name: Test 
