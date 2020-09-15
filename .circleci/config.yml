@@ -36,8 +36,7 @@ jobs:
     - run: # run code coverage report
           name: code-coverage
           command: npm run coveralls
-    # - coveralls/upload
-jobs:    
+    - coveralls/upload   
     commands:
       upload:
         parameters:
