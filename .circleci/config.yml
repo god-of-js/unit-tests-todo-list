@@ -20,7 +20,7 @@ jobs:
     environment:
       NODE_ENV: test
     steps:
-    - checkout # special step to check out source code to working directory
+    - checkout # special step to check out source code to working director
     - restore_cache: # special step to restore the dependency cache
         key: dependency-cache-{{ checksum "package.json" }}
     - run:
