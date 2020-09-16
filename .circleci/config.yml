@@ -11,7 +11,7 @@ workflows:
           requires:
             - build
           filters:
-            branches:
+            branches: 
               only: master
 jobs:
   build:
@@ -35,7 +35,7 @@ jobs:
         command: npm run test:unit
     - run: # run code coverage report
           name: code-coverage
-          command: npm run coveralls
+          command: npm run coverage
     - coveralls/upload  
 notify:
   webhooks:
