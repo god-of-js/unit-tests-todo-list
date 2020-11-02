@@ -1,42 +1,40 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1
-  heroku: circleci/heroku@0.0.10
-  coveralls: coveralls/coveralls@1.0.6
+  node: circleci/node@1.1 // node orb 
+  heroku: circleci/heroku@0.0.10 // heroku orb
+  coveralls: coveralls/coveralls@1.0.6 // coveralls orb
 workflows:
   heroku_deploy:
     jobs:
       - build
-      - heroku/deploy-via-git: # Use the pre-configured job  
-          requires:
-            - build
-          filters:
-            branches: 
-              only: master
+      - heroku/deploy-via-git: # Use the pre-configured job
+        requires:
+          - build
+        filters:
+          branches:
+            only: master
 jobs:
   build:
     docker:
-    - image: circleci/node:11.8-browsers
-    environment:
-      NODE_ENV: test
+      - image: circleci/node:10.16.0
     steps:
-    - checkout # special step to check out source code to working director
-    - restore_cache: # special step to restore the dependency cache
+      - checkout
+      - restore_cache:
         key: dependency-cache-{{ checksum "package.json" }}
-    - run:
-        name: install npm dependencies
+      - run:
+        name: install-npm-dependencies
         command: npm install
-    - save_cache: # special step to save the dependency 
+      - save_cache:
         key: dependency-cache-{{ checksum "package.json" }}
         paths:
-        - ./node_modules
-    - run:
-        name: running unit tests
+          - ./node_modules
+      - run: # run tests
+        name: test
         command: npm run test:unit
-    - run: # run code coverage report
-          name: code-coverage
-          command: npm run coverage
-    - coveralls/upload  
-notify:
-  webhooks:
-    - url: https://coveralls.io/webhook?repo_token=${COVERALLS_REPO_TOKEN}
+      - run: # run tests
+        name: test
+        command: npm run build
+      - run: # run code coverage report
+        name: code-coverage
+        command: npm run coveralls
+      # - coveralls/upload
